@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <title>Уроки</title>
+    <link rel="stylesheet" href="{% static 'lessons/styles/lessons.css' %}">
+</head>
+
+<body>
+<h1>
+    Уроки
+</h1>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Учень</td>
+        <td>Вчитель</td>
+        <td>Дата</td>
+        <td>Предмет</td>
+        <td>Тривалість</td>
+    </tr>
+    {% for lesson in lessons %}
+    <tr>
+        <td>{{lesson.id}}</td>
+        <td>{{lesson.student}}</td>
+        <td>{{lesson.teacher}}</td>
+        <td>{{lesson.data}}</td>
+        <td>{{lesson.subject}}</td>
+        <td>{{lesson.duration}}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+<img src="{% static 'lessons/images/math04.png' %}" alt="">
+
+</body>
+</html>
+
