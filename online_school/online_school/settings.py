@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'lessons.apps.LessonsConfig',
     'django_extensions',
-    'users'
+    'users',
+    'form_app',
 ]
 
 MIDDLEWARE = [
