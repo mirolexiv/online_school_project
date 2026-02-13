@@ -1,19 +1,14 @@
+{% extends 'lessons/index.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ua">
-<head>
-    <meta charset="UTF-8">
-    <title>Уроки</title>
-    <link rel="stylesheet" href="{% static 'lessons/styles/lessons.css' %}">
-</head>
+{% block title %}Уроки{% endblock %}
 
-<body>
+{% block page %}
+
 <h1>
     Уроки
 </h1>
 <table>
     <tr>
-        <td>ID</td>
         <td>Учень</td>
         <td>Вчитель</td>
         <td>Дата</td>
@@ -22,7 +17,6 @@
     </tr>
     {% for lesson in lessons %}
     <tr>
-        <td>{{lesson.id}}</td>
         <td>{{lesson.student}}</td>
         <td>{{lesson.teacher}}</td>
         <td>{{lesson.data}}</td>
@@ -34,7 +28,6 @@
 
 </table>
 <img src="{% static 'lessons/images/math03.jpg' %}" alt="">
+{% endblock page %}
 
-</body>
-</html>
 

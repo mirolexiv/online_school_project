@@ -21,7 +21,7 @@ import lessons
 from lessons import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('lessons/', include('lessons.urls')),
     path('users/', include('users.urls', namespace='users')),
     path('form/', include('form_app.urls')),
