@@ -1,18 +1,41 @@
-{%  load static %}
-
-<!doctype html>
-<html lang="uk-Uk">
+{% load static %}
+<!DOCTYPE html>
+<html lang="ua">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'form_app/styles/add_data.css' %}">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'form_app/styles/add_data.css' %}">
 </head>
+
 <body>
-        {% block content %}
-        {% endblock %}
-        <img src="{% static 'form_app/images/logo.jpg' %}" alt="">
-</body>
+
+{% block mainmenu %}
+<ul class="mainmenu">
+{% for m in menu %}
+    <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock mainmenu %}
+
+<div class="layout">
+
+    <!-- ЛІВЕ МЕНЮ -->
+    <aside class="sidebar">
+        <ul>
+            <li><a href="{% url 'add:add_lessons' %}">Додати урок</a></li>
+            <li><a href="{% url 'add:add_teacher' %}">Додати учня </a></li>
+            <li><a href="{% url 'add:add_student' %}">Додати вчителя</a></li>
+            <li><a href="{% url 'add:add_subject' %}">Додати предмет</a></li>
+        </ul>
+    </aside>
+
+    <!-- КОНТЕНТ -->
+    <div class="content">
+        {% block page %}
+        {% endblock page %}
+    </div>
+
+</div>
+ </body>
 </html>
+

@@ -1,14 +1,17 @@
 {% extends 'form_app/base_form.html' %}
+{% load static %}
 {% block title %}Додати вчителя{% endblock %}
 
-{% block content %}
+{% block page %}
 <h1>Форма для додавання занять</h1>
 
 <form method="post" action="">
+
     {% csrf_token %}
     {{form.as_p}}
     <p>
         <button type="submit">Зберегти</button>
     </p>
 </form>
-{% endblock %}
+   <img src="{% static 'form_app/images/logo.jpg' %}" alt="">
+ {% endblock page %}
