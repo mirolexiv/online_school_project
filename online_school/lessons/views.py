@@ -3,11 +3,11 @@ from django.shortcuts import render
 from .models import Students, Teachers, Subjects, Lessons
 from django.contrib import admin
 
-menu = [{'title': "Про сайт", 'url_name': 'students'},
-        {'title': "Заняття", 'url_name': 'lessons'},
-        {'title': "Додати", 'url_name': 'teachers'},
+menu = [{'title': "Про сайт", 'url_name': 'lessons:about'},
+        {'title': "Заняття", 'url_name': 'lessons:lessons'},
+        {'title': "Додати", 'url_name': 'add:add_lessons'},
         {'title': "Увійти", 'url_name': 'users:login'},
-         {'title': "Вийти", 'url_name': 'users:logout'},
+        {'title': "Вийти", 'url_name': 'users:logout'},
         {'title': "Адмін", 'url_name': 'admin:index'},
 ]
 
@@ -33,3 +33,7 @@ def web_lessons(request):
     lessons = Lessons.objects.all()
     context = {'lessons': lessons, 'menu': menu}
     return render(request, 'lessons/lessons.html', context)
+
+def web_about(request):
+    context = {'menu': menu}
+    return render(request, 'lessons/about.html', context)
